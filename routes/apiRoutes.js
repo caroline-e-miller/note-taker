@@ -14,7 +14,6 @@ module.exports = (app) => {
     });
 
     app.post('/api/notes', (req, res) => {
-        // `POST /api/notes` should receive a new note to save on the request body, add it to the `db.json` file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into `npm` packages that could do this for you).
         const newNote = req.body;
         newNote.id = uuidv4();
         console.log(newNote);
@@ -30,11 +29,6 @@ module.exports = (app) => {
                 console.log("Note saved!")
                 res.json(newNote)
             })
-            // res.writeHead(200, { 'Content-Type': 'text/html' });
-            // res.end(data);
         })
-        // the code below is trash, I just don't know how to push the new note to the JSON file
-        // db.json.push(newNote);
-        // res.json(newNote);
     });
 };
